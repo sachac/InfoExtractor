@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">AAA InfoExtractor</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="extract_url_with_infoextractor">Extract URL with InfoExtractor</string>
+
+</resources>
