@@ -1,0 +1,1 @@
+This is a small utility that extracts a URL from the text received from another Android application and then passes the URL to the browser. I wrote this because many applications share just a URL instead of the full text of the note or item you're looking at, and it's a hassle to then select the URL and open it in a browser.
