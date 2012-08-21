@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Patterns;
 
 public class InfoReceiver extends Activity {
 	 @Override 
@@ -25,17 +26,7 @@ public class InfoReceiver extends Activity {
 	 private void handleSendText(Intent intent) {
 		 String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
 		 // Find the matching URL
-		 Pattern pattern = Pattern.compile(
-				 "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" + 
-						 "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" + 
-						 "|mil|biz|info|mobi|name|aero|jobs|museum" + 
-						 "|travel|[a-z]{2}))(:[\\d]{1,5})?" + 
-						 "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" + 
-						 "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" + 
-						 "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" + 
-						 "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" + 
-						 "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" + 
-				 "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b");
+		 Pattern pattern = Patterns.WEB_URL;
 		 Matcher matcher = pattern.matcher(sharedText);
 		 if (matcher.find()) {
 			 Intent newIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(matcher.group()));
